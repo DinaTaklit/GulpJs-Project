@@ -87,9 +87,34 @@ to transforme files from source to destination we choose the source then transfo
     npm i gulp-pug --save-dev
     ```
 
-- import it and use it :p ex: `pipe(pug())`, this will compress the html file. or if you want to keep the code pretty `.pipe(pug({pretty: true}))`
+- Import it and use it :p ex: `pipe(pug())`, this will compress the html file. or if you want to keep the code pretty `.pipe(pug({pretty: true}))`
 
 > pugjs is quite like sass but for html :v. You can use it to import header html file etc ...
+
+## Setting Up A Local Server To Test Files
+
+- Install `static-server`
+
+    ```bash
+    npm i static-server --save
+    ```
+
+- Create `server.js`
+
+    ```js
+    var StaticServer = require('static-server');
+    var server = new StaticServer({
+    rootPath: './dist/',            // required, the root of the server file tree
+    port: 8000,               // required, the port to listen
+    });
+
+
+    server.start(function () {
+        console.log('Server listening to', server.port);
+    });
+    ```
+
+- Run it with the command `node server.js` or by puting this line on any task `require('./server.js');`
 
 ## Credits
 
