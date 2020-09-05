@@ -18,6 +18,7 @@
   "homepage": "https://github.com/DinaTaklit/GulpJs-Project#readme",
   "devDependencies": {
     "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
     "gulp-concat": "^2.6.1"
   }
 }
