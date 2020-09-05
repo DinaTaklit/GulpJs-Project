@@ -6,7 +6,6 @@ const pug = require('gulp-pug');
 
 // html task 
 gulp.task('html-task', async function(){
-    require('./server.js');
     return gulp.src('project/index.pug')
             .pipe(pug({pretty: true}))
             .pipe(gulp.dest('dist'))
@@ -21,4 +20,11 @@ gulp.task('css-task',async function(){
             //later if we have other css libraries that we want to add
             .pipe(concat('main.css')) 
             .pipe(gulp.dest('dist/public/css'))
+});
+
+// watch task
+gulp.task('watch-task', async function(){
+    require('./server.js');
+    gulp.watch(['project/index.pug','project/pug/*'], gulp.series('html-task'));
+    gulp.watch(['project/public/sass/*','project/public/sass/components/*'], gulp.series('css-task'));
 });
