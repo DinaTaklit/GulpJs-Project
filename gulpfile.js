@@ -3,5 +3,6 @@ const gulp = require('gulp'); // to import gulp from gulp modules
 // My first task 
 
 gulp.task('first-task', async function(){
-    console.log("Yeessss My fist task :D");
+    return gulp.src(['project/index.html','project/about.html'])
+            .pipe(gulp.dest('dist'))
 });
