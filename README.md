@@ -68,7 +68,17 @@ to transforme files from source to destination we choose the source then transfo
 
 - Import the package to prefix css properties
     `pipe(prefix())` or specifyes the versions to suport like `pipe(prefix('last 2 versions'))`
-  
+
+## Manage And Compile Sass Files
+
+- Install `gulp-sass` package
+
+    ```bash
+    npm install node-sass gulp-sass --save-dev
+    ```
+
+- Import it and use it :D ex: `.pipe(sass())`, `.pipe(sass({outputStyle: 'compressed'}))`, `.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))`
+
 ## Credits
 
 All credits goes for Learn Gulpjs course in Elzero Web School
