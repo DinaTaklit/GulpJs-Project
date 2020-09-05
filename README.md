@@ -48,8 +48,27 @@ to transforme files from source to destination we choose the source then transfo
     npm install --save-dev gulp-concat
     ```
 
-- concate multiple files from source to destination ex:
+- Import the package and concate multiple files from source to destination ex:
+  
+    ```js
+    gulp.task('css-task',async function(){
+        return gulp.src('project/public/css/*')
+                .pipe(concat('main.css'))
+                .pipe(gulp.dest('dist/public/css'))
+    });
+    ```
 
+## AutoPrefixer For CSS3 Properties
+
+- Install `gulp-autoprefixer` package
+  
+    ```bash
+    npm install --save-dev gulp-autoprefixer
+    ```
+
+- Import the package to prefix css properties
+    `pipe(prefix())` or specifyes the versions to suport like `pipe(prefix('last 2 versions'))`
+  
 ## Credits
 
 All credits goes for Learn Gulpjs course in Elzero Web School
