@@ -27,6 +27,19 @@ This project aim to learn Gulp js
 > fix The following error => tasks did not complete: first-task
 > https://stackoverflow.com/questions/36897877/gulp-error-the-following-tasks-did-not-complete-did-you-forget-to-signal-async
 
+## Copy Files From Source To Destination
+
+to transforme files from source to destination we choose the source then transform it to destination after applying some functions by `pip`
+
+- Src can be a file using the name of the specific file or diff files using `*` ex: `gulp.src('index.html')`, `gulp.src('*.html')`, `gulp.src('*.*')`, or an array `gulp.src(['name1','name2'])`
+
+- Specify the dstination that can be an existing folder or create a folder inside the destination ...etc : `gulp.dest('dist')`, `gulp.dest('dist/css')` ...etc.
+  
+    ```js
+    return gulp.src(['project/index.html','project/about.html'])
+                .pipe(gulp.dest('dist'))
+    ```
+
 ## Credits
 
 All credits goes for Learn Gulpjs course in Elzero Web School
