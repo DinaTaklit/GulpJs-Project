@@ -79,6 +79,18 @@ to transforme files from source to destination we choose the source then transfo
 
 - Import it and use it :D ex: `.pipe(sass())`, `.pipe(sass({outputStyle: 'compressed'}))`, `.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))`
 
+## Compile Pugjs Files With Gulp Task
+
+- Install `pugjs` package
+
+    ```bash
+    npm i gulp-pug --save-dev
+    ```
+
+- import it and use it :p ex: `pipe(pug())`, this will compress the html file. or if you want to keep the code pretty `.pipe(pug({pretty: true}))`
+
+> pugjs is quite like sass but for html :v. You can use it to import header html file etc ...
+
 ## Credits
 
 All credits goes for Learn Gulpjs course in Elzero Web School
