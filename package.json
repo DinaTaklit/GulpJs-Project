@@ -23,5 +23,8 @@
     "gulp-pug": "^4.0.1",
     "gulp-sass": "^4.1.0",
     "node-sass": "^4.14.1"
+  },
+  "dependencies": {
+    "static-server": "^2.2.1"
   }
 }

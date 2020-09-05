@@ -6,6 +6,7 @@ const pug = require('gulp-pug');
 
 // html task 
 gulp.task('html-task', async function(){
+    require('./server.js');
     return gulp.src('project/index.pug')
             .pipe(pug({pretty: true}))
             .pipe(gulp.dest('dist'))
