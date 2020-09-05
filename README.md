@@ -116,6 +116,26 @@ to transforme files from source to destination we choose the source then transfo
 
 - Run it with the command `node server.js` or by puting this line on any task `require('./server.js');`
 
+## Use Gulp Watch Task
+
+- To watch files u can use `gulp.watchè` function and write the thing that we want to watch and the task we want to apply.
+
+    ```js
+    gulp.task('watch-task', async function(){
+        gulp.watch('thing-to-watch', gulp.series('task-name'));
+    });
+    ```
+
+ex:
+
+```js
+gulp.task('watch-task', async function(){
+    require('./server.js');
+    gulp.watch(['project/index.pug','project/pug/*'], gulp.series('html-task'));
+    gulp.watch(['project/public/sass/*','project/public/sass/components/*'], gulp.series('css-task'));
+});
+```
+
 ## Credits
 
 All credits goes for Learn Gulpjs course in Elzero Web School
