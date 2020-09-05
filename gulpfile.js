@@ -2,14 +2,16 @@ const gulp = require('gulp'); // to import gulp from gulp modules
 const concat = require('gulp-concat');
 const prefix = require('gulp-autoprefixer');
 const sass = require('gulp-sass');
+const pug = require('gulp-pug');
+
 // html task 
 gulp.task('html-task', async function(){
-    return gulp.src(['project/index.html','project/about.html'])
+    return gulp.src('project/index.pug')
+            .pipe(pug({pretty: true}))
             .pipe(gulp.dest('dist'))
 });
 
 // css task 
-
 gulp.task('css-task',async function(){
     return gulp.src('project/public/sass/main.scss')
             .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
