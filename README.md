@@ -2,6 +2,6 @@
 
 This project aim to learn Gulp js
 
-## Credist
+## Credits
 
 All credits goes for Learn Gulpjs course in Elzero Web School

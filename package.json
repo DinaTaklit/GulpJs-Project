@@ -1,0 +1,22 @@
+{
+  "name": "gulpjs",
+  "version": "1.0.0",
+  "description": "Gulp Js Project to learn Gulp Js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DinaTaklit/GulpJs-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DinaTaklit/GulpJs-Project/issues"
+  },
+  "homepage": "https://github.com/DinaTaklit/GulpJs-Project#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
