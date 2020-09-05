@@ -40,6 +40,16 @@ to transforme files from source to destination we choose the source then transfo
                 .pipe(gulp.dest('dist'))
     ```
 
+## Concatenate CSS and JS Files In One File
+
+- Install `gulp-concat` package
+
+    ```bash
+    npm install --save-dev gulp-concat
+    ```
+
+- concate multiple files from source to destination ex:
+
 ## Credits
 
 All credits goes for Learn Gulpjs course in Elzero Web School
