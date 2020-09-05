@@ -136,6 +136,24 @@ gulp.task('watch-task', async function(){
 });
 ```
 
+## Live Reload Browser
+
+- Install the package
+
+    ```bash
+    npm install --save-dev gulp-livereload
+    ```
+
+- Import the package and add this line in every task except the watch task `.pipe(livereload());`
+- Add the listen command in watch task `livereload.listen();`
+- The package will not work alone unless we use a chrom extention or call the script that this package depned on. Add this script on the `index.pug`
+
+  ```pug
+  script(src="http://localhost:35729/livereload.js")
+  ```
+
+> if you use other server packages they do live reload by themselves
+
 ## Credits
 
 All credits goes for Learn Gulpjs course in Elzero Web School
