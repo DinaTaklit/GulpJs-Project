@@ -86,3 +86,6 @@ gulp.task('watch', async function(){
     gulp.watch('dist/**/*.*', gulp.series('compress'));
     //gulp.watch('dist/**/*.*', gulp.series('deploy'));
 });
+
+// Default task 
+gulp.task('default', gulp.parallel('watch'));
