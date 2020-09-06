@@ -8,6 +8,8 @@ const sourcemaps = require('gulp-sourcemaps'); // to create a map
 const uglify = require('gulp-uglify'); // to minify js scripts
 const notify = require("gulp-notify"); // to show notifications
 const zip = require('gulp-zip'); // to compress files
+const ftp = require('vinyl-ftp'); // to upload the files to the host using ftp
+
 
 // html task 
 gulp.task('html-task', async function(){
@@ -50,6 +52,30 @@ gulp.task('compress', async function(){
            .pipe(notify('Files are compressed'))
 });
 
+
+// deploy the app in my case I do not have a host but this is how the code will look like
+// gulp.task( 'deploy', function () {
+//     var conn = ftp.create( {
+//         host:     'mywebsite.tld', // enter your host here
+//         user:     'me', // the user 
+//         password: 'mypass', // the password
+//         parallel: 10
+//     } );
+ 
+//     var globs = ['dist/**/*.*'];
+ 
+//     // using base = '.' will transfer everything to /public_html correctly
+//     // turn off buffering in gulp.src for best performance
+ 
+//     return gulp.src( globs, { base: '.', buffer: false })
+//         .pipe( conn.newer( '/public_html' ) ) // only upload newer files
+//         .pipe( conn.dest( '/public_html' ) )
+//         .pipe(livereload()); // reload the after finishing the upload
+// });
+
+
+
+
 // watch task
 gulp.task('watch', async function(){
     require('./server.js');
@@ -58,4 +84,5 @@ gulp.task('watch', async function(){
     gulp.watch(['project/public/sass/*','project/public/sass/components/*'], gulp.series('css-task'));
     gulp.watch('project/public/js/*.js', gulp.series('js-task'));
     gulp.watch('dist/**/*.*', gulp.series('compress'));
+    //gulp.watch('dist/**/*.*', gulp.series('deploy'));
 });
