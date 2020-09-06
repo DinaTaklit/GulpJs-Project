@@ -182,6 +182,11 @@ gulp.task('watch-task', async function(){
     });
     ```
 
+## Show Notification With Notify
+
+- Install the package `npm install --save-dev gulp-notify`
+- Import and use the package ex: `.pipe(notify('HTML task ended'))`
+
 ## Credits
 
 All credits goes for Learn Gulpjs course in Elzero Web School
