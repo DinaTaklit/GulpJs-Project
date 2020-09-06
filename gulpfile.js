@@ -6,6 +6,7 @@ const pug = require('gulp-pug'); // for html pug
 const livereload = require('gulp-livereload'); // to make live reload
 const sourcemaps = require('gulp-sourcemaps'); // to create a map
 const uglify = require('gulp-uglify'); // to minify js scripts
+const notify = require("gulp-notify"); // to show notifications
 
 
 // html task 
@@ -13,6 +14,7 @@ gulp.task('html-task', async function(){
     return gulp.src('project/index.pug')
             .pipe(pug({pretty: true}))
             .pipe(gulp.dest('dist'))
+            .pipe(notify('HTML task ended'))
             .pipe(livereload());
 });
 
