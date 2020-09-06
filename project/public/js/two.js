@@ -1,0 +1,1 @@
+document.getElementById('two').innerHTML= "Hello from Element two :p";

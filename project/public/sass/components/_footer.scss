@@ -1,4 +1,10 @@
 footer {
+    height: 100px;
     background-color: #222;
+    color: white;
     font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 12px 40px;
 }

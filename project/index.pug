@@ -5,6 +5,13 @@ html
         title This is Pugjs Page
         include pug/styles
     body 
+        header
+            p this is the header
         .container This Is a Container 32
+        .element(id="one") div one
+        .element(id="two") div two
+        footer 
+            p This is the footer :D
+        script(src="public/js/main.js")
         // Add the script to allow livereload to relaod automatically after each save
         script(src="http://localhost:35729/livereload.js")
