@@ -154,6 +154,34 @@ gulp.task('watch-task', async function(){
 
 > if you use other server packages they do live reload by themselves
 
+## Add Source Maps To Files
+
+- Install the package
+
+    ```bash
+    npm i gulp-sourcemaps --save-dev
+    ```
+
+- Import the plugin then initialize it on the place you wanna use the map `.pipe(sourcemaps.init())`
+- Write the map inside the folder you want by specifying the destination to prevent add it in the end of the main css file: `.pipe(sourcemaps.write('.'))`
+
+> In my case the source map was created but does not work on the browser so I added `loadMaps: true` to `sourcemaps.init()`: `.pipe(sourcemaps.init({loadMaps: true}))` and the map worked :D.
+
+## Minifying JS Files With Uglify
+
+- Install the package `npm install --save-dev gulp-uglify`
+- Import it then use it
+
+    ```js
+    gulp.task('js-task', async function(){
+    return gulp.src('project/public/js/*.js')
+            .pipe(concat('main.js'))
+            .pipe(uglify())
+            .pipe(gulp.dest('dist/public/js'))
+            .pipe(livereload());
+    });
+    ```
+
 ## Credits
 
 All credits goes for Learn Gulpjs course in Elzero Web School
