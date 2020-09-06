@@ -187,6 +187,23 @@ gulp.task('watch-task', async function(){
 - Install the package `npm install --save-dev gulp-notify`
 - Import and use the package ex: `.pipe(notify('HTML task ended'))`
 
+> Do not forget to watch all tasks in watch task
+
+## Compress Files With Gulp Zip
+
+- Install the package `npm install --save-dev gulp-zip`
+- Import it and use it:
+
+```js
+gulp.task('compress', async function(){
+    return gulp.src('dist/**/*.*')
+           .pipe(zip('website.zip'))
+           .pipe(gulp.dest('.'))
+           .pipe(notify('Files are compressed'))
+});
+```
+
+
 ## Credits
 
 All credits goes for Learn Gulpjs course in Elzero Web School
