@@ -7,7 +7,7 @@ const livereload = require('gulp-livereload'); // to make live reload
 const sourcemaps = require('gulp-sourcemaps'); // to create a map
 const uglify = require('gulp-uglify'); // to minify js scripts
 const notify = require("gulp-notify"); // to show notifications
-
+const zip = require('gulp-zip'); // to compress files
 
 // html task 
 gulp.task('html-task', async function(){
@@ -42,6 +42,13 @@ gulp.task('js-task', async function(){
 });
 
 
+// Comporess the final result 
+gulp.task('compress', async function(){
+    return gulp.src('dist/**/*.*')
+           .pipe(zip('website.zip'))
+           .pipe(gulp.dest('.'))
+           .pipe(notify('Files are compressed'))
+});
 
 // watch task
 gulp.task('watch', async function(){
@@ -50,4 +57,5 @@ gulp.task('watch', async function(){
     gulp.watch(['project/index.pug','project/pug/*'], gulp.series('html-task'));
     gulp.watch(['project/public/sass/*','project/public/sass/components/*'], gulp.series('css-task'));
     gulp.watch('project/public/js/*.js', gulp.series('js-task'));
+    gulp.watch('dist/**/*.*', gulp.series('compress'));
 });
