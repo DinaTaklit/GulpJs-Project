@@ -187,8 +187,6 @@ gulp.task('watch-task', async function(){
 - Install the package `npm install --save-dev gulp-notify`
 - Import and use the package ex: `.pipe(notify('HTML task ended'))`
 
-> Do not forget to watch all tasks in watch task
-
 ## Compress Files With Gulp Zip
 
 - Install the package `npm install --save-dev gulp-zip`
@@ -203,6 +201,46 @@ gulp.task('compress', async function(){
 });
 ```
 
+## Do not forget to watch all tasks in watch task
+
+- Install the package `npm i vinyl-ftp --save-dev`
+- Import and use the package
+  
+    ```js
+    gulp.task( 'deploy', function () {
+        var conn = ftp.create( {
+            host:     'mywebsite.tld', // enter your host here
+            user:     'me', // the user 
+            password: 'mypass', // the password
+            parallel: 10
+        } );
+
+        var globs = ['dist/**/*.*'];
+
+        // using base = '.' will transfer everything to /public_html correctly
+        // turn off buffering in gulp.src for best performance
+
+        return gulp.src( globs, { base: '.', buffer: false })
+            .pipe( conn.newer( '/public_html' ) ) // only upload newer files
+            .pipe( conn.dest( '/public_html' ) )
+            .pipe(livereload()); // reload the after finishing the upload
+    });
+    ```
+
+> Do not forget to watch all tasks in watch task
+
+```js
+// watch task
+gulp.task('watch', async function(){
+    require('./server.js');
+    livereload.listen();
+    gulp.watch(['project/index.pug','project/pug/*'], gulp.series('html-task'));
+    gulp.watch(['project/public/sass/*','project/public/sass/components/*'], gulp.series('css-task'));
+    gulp.watch('project/public/js/*.js', gulp.series('js-task'));
+    gulp.watch('dist/**/*.*', gulp.series('compress'));
+    //gulp.watch('dist/**/*.*', gulp.series('deploy'));
+});
+```
 
 ## Credits
 
