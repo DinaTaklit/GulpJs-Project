@@ -242,6 +242,31 @@ gulp.task('watch', async function(){
 });
 ```
 
+## Important Informations
+
+### Exclude files
+
+- if you want to exclude a file use `!` ex: `gulp.src(['project/public/js/*.js','!project/public/js/one.js'])`
+
+### Setup default task
+
+- you can setup the default task by `gulp.task('default',['watch']);` for ex now id you run `gulp` the default task will run
+
+> In version `>4` this my lead to an error so to prevent this you can writre it like this `gulp.task('default', gulp.parallel('watch'));`
+
+### Some useful packages
+
+- **gulp-babel**: return the modern java script into vanila js.
+- **gulp-replace**: A string replace plugin for gulp 3, like if you want to change a prefix
+- **gulp-load-plugins**: Loads gulp plugins from package dependencies and attaches them to an object of your choice: load plugins in the same place to speed up things
+- **gulp-rename**: gulp-rename is a gulp plugin to rename files easily
+- **gulp-plumber**: Prevent pipe breaking caused by errors from gulp plugins
+... etc
+
+### Install specific version
+
+- Specify the number of the version by adding `@version-number` ex: `npm install gulp@3.9.1`
+
 ## Credits
 
 All credits goes for Learn Gulpjs course in Elzero Web School
